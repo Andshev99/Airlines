@@ -1,7 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
+from .models import Flight, Airport
 
 # Створіть свої вікна тут.
 
+# def index(request):
+#     return HttpResponse("Flights")
 def index(request):
-    return HttpResponse("Flights")
+    return render(request, "flights/index.html", {
+        "flights": Flight.objects.all()
+    })
